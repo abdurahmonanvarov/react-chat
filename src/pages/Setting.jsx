@@ -1,26 +1,24 @@
-import { useCollection } from "../hoks/useCollection";
-import DarkMode from "../components/DarkMode";
+import { useSelector } from "react-redux";
 
 function Setting() {
-  const { datam } = useCollection("users");
-  console.log(datam);
+  //const { datam } = useCollection("users");
+  const { user } = useSelector((state) => state.user);
+  console.log(user);
 
-  // Faqat birinchi foydalanuvchini tanlash
-  const singleUser = datam ? datam[0] : null;
+  //const singleUser = datam ? datam[0] : null;
 
   return (
     <div>
-      <DarkMode />
-      {singleUser && (
+      {user && (
         <div className="flex flex-col items-center justify-center bg-gray-100">
           {/* Title */}
-          <h1 className="text-3xl font-bold mb-4">{singleUser.displayName}</h1>
+          <h1 className="text-3xl font-bold mb-4">{user.displayName}</h1>
 
           {/* Upper Section */}
           <div className="relative bg-pink-200 w-full h-52 rounded-lg flex items-center justify-center mb-40">
             {/* Circle */}
             <img
-              src={singleUser.photoURL}
+              src={user.photoURL}
               alt="User Avatar"
               className="absolute top-20 w-48 h-48 bg-pink-300 rounded-full border border-gray-300"
             />
@@ -29,12 +27,12 @@ function Setting() {
           {/* Input fields */}
           <div className="flex justify-between gap-7 mt-6">
             <input
-              placeholder={singleUser.displayName}
-              className="w-64 h-10 text-black p-5 rounded-md"
+              className="border border-gray-300 rounded p-2 focus:outline-none focus:ring focus:ring-blue-300"
+              defaultValue={user.displayName}
             />
             <input
-              placeholder={singleUser.id}
-              className="w-64 h-10 text-black p-5 rounded-md"
+              className="border border-gray-300 rounded p-2 focus:outline-none focus:ring focus:ring-blue-300"
+              defaultValue={user.email}
             />
           </div>
 

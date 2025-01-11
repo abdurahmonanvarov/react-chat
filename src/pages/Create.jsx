@@ -8,7 +8,6 @@ import { Timestamp } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
 import { useFirebaseStorage } from "../hoks/useFirebaseStorage";
 import { useCollection } from "../hoks/useCollection";
-import DarkMode from "../components/DarkMode";
 
 const animate = makeAnimated();
 
@@ -70,7 +69,6 @@ function Create() {
 
   return (
     <div className="mt-10 overflow-auto">
-      <DarkMode />
       <h1 className="text-3xl font-semibold mb-5">Create new project</h1>
       <Form
         action=""

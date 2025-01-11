@@ -3,13 +3,18 @@ import Avatar from "./Avatar";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useLogeOut } from "../hoks/useLogeOut";
+import DarkMode from "./DarkMode";
 
 function Saitbar() {
   const { logeout } = useLogeOut();
   const { user } = useSelector((store) => store.user);
   return (
     <div className="bg-violet-400 min-h-screen w-[350px] p-10 text-white pr-0 flex flex-col">
-      <Avatar user={user} />
+      <div>
+        {" "}
+        <DarkMode />
+        <Avatar user={user} />
+      </div>
       <ul className="mt-3 mb-auto">
         <li className="nav-item w-full">
           <NavLink className="block px-3 py-2 rounded-l-3xl" to="/">
