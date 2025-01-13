@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useCollection } from "../hoks/useCollection";
 import { Link } from "react-router-dom";
 
