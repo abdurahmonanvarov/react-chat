@@ -11,7 +11,7 @@ function OnlineUser() {
           datam.map((info) => (
             <li
               key={info.id}
-              className="flex gap-4 items-center bg-white p-4 rounded-lg shadow hover:scale-105 hover:shadow-2xl hover:bg-blue-50"
+              className="flex gap-4 items-center bg-white p-4 rounded-lg shadow cursor-pointer hover:scale-105 hover:shadow-2xl hover:bg-blue-50"
             >
               <img
                 className="w-14 h-14 rounded-full border-2 border-blue-500"
