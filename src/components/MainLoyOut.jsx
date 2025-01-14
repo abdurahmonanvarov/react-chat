@@ -9,7 +9,7 @@ function MainLoyOut() {
   return (
     <div className="flex justify-between">
       <Saitbar />
-      <main className="w-full bg-slate-100 p-10">
+      <main className="w-full bg-warningt p-10">
         <Outlet />
       </main>
       <OnlineUser />

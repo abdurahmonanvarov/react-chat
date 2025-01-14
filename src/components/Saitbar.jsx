@@ -11,7 +11,7 @@ function Saitbar() {
   const { logeout } = useLogeOut();
   const { user } = useSelector((store) => store.user);
   return (
-    <div className="bg-violet-400 min-h-screen w-[350px] p-10 text-white pr-0 flex flex-col">
+    <div className="bg-primary-content min-h-screen w-[350px] p-10 text-white pr-0 flex flex-col">
       <div>
         {" "}
         <label className="swap swap-rotate">

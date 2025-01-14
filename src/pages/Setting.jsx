@@ -3,14 +3,13 @@ import { useSelector } from "react-redux";
 function Setting() {
   //const { datam } = useCollection("users");
   const { user } = useSelector((state) => state.user);
-  console.log(user);
 
   //const singleUser = datam ? datam[0] : null;
 
   return (
     <div>
       {user && (
-        <div className="flex flex-col items-center justify-center bg-gray-100">
+        <div className="flex flex-col items-center justify-center bg-warningt">
           {/* Title */}
           <h1 className="text-3xl font-bold mb-4">{user.displayName}</h1>
 
@@ -37,7 +36,7 @@ function Setting() {
           </div>
 
           {/* Save Button */}
-          <button className="btn mt-6 block w-96 h-14 text-white font-bold rounded-md">
+          <button className="btn btn-primary mt-6 block w-96 h-14 text-white font-bold rounded-md">
             Save
           </button>
         </div>

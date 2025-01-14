@@ -11,14 +11,13 @@ function About() {
   const { id } = useParams();
   const { document } = useDocuments("project", id);
   const [message, setMessage] = useState("");
-  const { updateDocument } = useFirebaseStorage("project");
+  const { updateDocument, deletDocument } = useFirebaseStorage("project");
   if (!document) {
     return <div className="loading"></div>;
   }
 
   const hendleSubmit = async (e) => {
     e.preventDefault();
-    console.log(message);
     const infos = {
       id: uuidv4(),
       message,
@@ -41,49 +40,55 @@ function About() {
 
   return (
     <div className="grid grid-cols-2 gap-16 ">
-      <div className="flex items-start min-h-screen bg-gray-100">
+      <div className="flex items-start min-h-screen bg-none">
         <div className="card w-96 bg-white shadow-xl">
           <div className="card-body">
             <h2 className="card-title text-blue-500">{document.projectname}</h2>
-            <p>{document.textarea}</p>
+            <p className="text-blue-500">{document.textarea}</p>
             <div className="card-actions justify-end">
-              <button className="btn btn-primary mt-2">Delet</button>
+              <button
+                onClick={() => deletDocument(document.id)}
+                className="btn btn-primary mt-2"
+              >
+                Delet
+              </button>
             </div>
           </div>
         </div>
       </div>
       <div>
         <h1 className="text-3xl">Chat:</h1>
-        {document.comments.length == 0 ? (
+        {document.comments && document.comments.length == 0 ? (
           <h2 className="text-center text-2xl my-10 opacity-50 ">
             No comment yet
           </h2>
         ) : (
           <div className="h-48  overflow-auto">
-            {document.comments.map((doc) => {
-              return (
-                <div
-                  key={doc.uid}
-                  className={`chat ${
-                    user.uid == doc.owner.id ? "chat-end" : "chat-start"
-                  }`}
-                >
-                  <div className="chat-image avatar">
-                    <div className="w-10 rounded-full">
-                      <img
-                        alt="Tailwind CSS chat bubble component"
-                        src={doc.owner.photoURL}
-                      />
+            {document.comments &&
+              document.comments.map((doc) => {
+                return (
+                  <div
+                    key={doc.id}
+                    className={`chat ${
+                      user.uid == doc.owner.id ? "chat-end" : "chat-start"
+                    }`}
+                  >
+                    <div className="chat-image avatar">
+                      <div className="w-10 rounded-full">
+                        <img
+                          alt="Tailwind CSS chat bubble component"
+                          src={doc.owner.photoURL}
+                        />
+                      </div>
                     </div>
+                    <div className="chat-header">
+                      {doc.owner.displayName}
+                      <time className="text-xs opacity-50"></time>
+                    </div>
+                    <div className="chat-bubble">{doc.message}</div>
                   </div>
-                  <div className="chat-header">
-                    {doc.owner.displayName}
-                    <time className="text-xs opacity-50"></time>
-                  </div>
-                  <div className="chat-bubble">{doc.message}</div>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
         )}
         <div>
