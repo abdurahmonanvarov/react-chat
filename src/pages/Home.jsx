@@ -1,8 +1,11 @@
+import { useSelector } from "react-redux";
 import { useCollection } from "../hoks/useCollection";
 import { Link } from "react-router-dom";
 
 function Home() {
   const { datam } = useCollection("project");
+  const { user } = useSelector((state) => state.user);
+  console.log(user);
 
   return (
     <div>
@@ -23,18 +26,13 @@ function Home() {
 
                   <div className="card-actions justify-between mt-8">
                     <hr />
-                    {/* {doc &&
-                      doc.project.value.map((user) => {
-                        return (
-                          <div className="avatar-group -space-x-6 rtl:space-x-reverse">
-                            <div className="avatar">
-                              <div className="w-12">
-                                <img src={user.photoURL} alt="" />
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      })} */}
+                    <div className="avatar-group -space-x-6 rtl:space-x-reverse">
+                      <div className="avatar">
+                        <div className="w-12">
+                          <img src={user.photoURL} alt="" />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Link>
