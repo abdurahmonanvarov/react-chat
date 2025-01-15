@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 function Home() {
   const { datam } = useCollection("project");
   const { user } = useSelector((state) => state.user);
-  console.log(user);
 
   return (
     <div>
