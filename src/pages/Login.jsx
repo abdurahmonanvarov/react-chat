@@ -32,7 +32,9 @@ function Login() {
   return (
     <div className="h-screen grid place-items-center w-full bg-white">
       <Form method="post" className="max-w-96 mx-auto w-full">
-        <h1 className="text-4xl mb-5 text-center font-bold">Login</h1>
+        <h1 className="text-4xl mb-5 text-center text-black font-bold">
+          Login
+        </h1>
 
         <FormInput type="email" placeholder="Enter your email" name="email" />
 
@@ -67,8 +69,8 @@ function Login() {
         </div>
 
         <div className="text-center">
-          <p>
-            If you have not account, Register{" "}
+          <p className="text-black">
+            If you have not account,{" "}
             <Link to="/register" className="link link-primary">
               Register
             </Link>

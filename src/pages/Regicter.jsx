@@ -54,7 +54,9 @@ function Register() {
   return (
     <div className="h-screen grid place-items-center w-full bg-white">
       <Form method="post" className="max-w-96 mx-auto w-full">
-        <h1 className="text-4xl mb-5 text-center font-bold">Register</h1>
+        <h1 className="text-4xl text-black mb-5 text-center font-bold">
+          Register
+        </h1>
 
         <FormInput
           type="text"
@@ -114,9 +116,9 @@ function Register() {
         </div>
 
         <div className="text-center">
-          <p>
+          <p className="text-black">
             If you have an account,{" "}
-            <Link to="/login" className="link link-primary">
+            <Link to="/login" className="link link-primary ">
               Login
             </Link>
           </p>

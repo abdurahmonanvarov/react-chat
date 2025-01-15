@@ -4,12 +4,11 @@ import Saitbar from "./Saitbar";
 import OnlineUser from "./OnlineUser";
 //import Navbar from "./Navbar";
 //import Footer from "./Footer";
-
 function MainLoyOut() {
   return (
     <div className="flex justify-between">
       <Saitbar />
-      <main className="w-full bg-warningt p-10">
+      <main className="w-full bg-neutral-content p-10">
         <Outlet />
       </main>
       <OnlineUser />
